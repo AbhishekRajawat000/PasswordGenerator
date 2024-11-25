@@ -1,0 +1,1 @@
+<h1 className='text-4xl text-center text-white font-serif'>Password Generator</h1>
