@@ -37,21 +37,23 @@ function App() {
   }, [length, numberAllowed, charAllowed, passwordGenerator])
   return (
     
-    <div className="w-full max-w-md mx-auto shadow-md rounded-lg px-4 py-3 my-8 bg-gray-800 text-orange-500">
-      <h1 className='text-white text-center my-3'>Password generator</h1>
-    <div className="flex shadow rounded-lg overflow-hidden mb-4">
+    <div className="w-full max-w-md mx-auto shadow-lg rounded-lg px-4 py-3 sm:px-6 sm:py-4 my-6 sm:my-10 bg-gradient-to-r from-blue-800 to-purple-600 text-white ring-4 ring-pink-600 ring-opacity-50 ">
+      <h1 className='text-2xl sm:text-3xl font-bold text-center my-3 sm:my-4'>Password Generator</h1>
+    <div className="flex shadow rounded-lg overflow-hidden mb-4 sm:mb-5">
         <input
             type="text"
             value={password}
-            className="outline-none w-full py-1 px-3"
+            className="outline-none w-full py-1 px-3 sm:py-2 sm:px-4 bg-white text-gray-800 rounded-l-lg ring-2 ring-blue-300 ring-opacity-50 animate-pulse"
             placeholder="Password"
             readOnly
             ref={passwordRef}
         />
         <button
-        onClick={copyPasswordToClipboard}
-        className='outline-none bg-blue-700 text-white px-3 py-0.5 shrink-0'
-        >copy</button>
+          className="bg-green-500 hover:bg-green-600 text-white font-bold py-1 px-3 sm:py-2 sm:px-4 rounded-r-lg transition duration-300"
+          onClick={copyPasswordToClipboard}
+        >
+          Copy
+        </button>
         
     </div>
     <div className='flex text-sm gap-x-2'>
@@ -64,29 +66,29 @@ function App() {
          className='cursor-pointer'
          onChange={(e) => {setLength(e.target.value)}}
           />
-          <label>Length: {length}</label>
+          <label className="text-lg font-medium  ">Length: {length}</label>
       </div>
-      <div className="flex items-center gap-x-1">
+      <div className="flex items-center gap-x-1 sm:gap-x-2">
       <input
           type="checkbox"
-          defaultChecked={numberAllowed}
           id="numberInput"
+          checked={numberAllowed}
           onChange={() => {
               setNumberAllowed((prev) => !prev);
           }}
       />
-      <label htmlFor="numberInput">Numbers</label>
+      <label htmlFor="numberInput" className="text-sm sm:text-lg font-medium">Numbers</label>
       </div>
-      <div className="flex items-center gap-x-1">
+      <div className="flex items-center gap-x-1 sm:gap-x-2">
           <input
               type="checkbox"
-              defaultChecked={charAllowed}
               id="characterInput"
+              checked={charAllowed}
               onChange={() => {
                   setCharAllowed((prev) => !prev )
               }}
           />
-          <label htmlFor="characterInput">Characters</label>
+          <label htmlFor="characterInput" className="text-sm sm:text-lg font-medium">Characters</label>
       </div>
     </div>
 </div>
